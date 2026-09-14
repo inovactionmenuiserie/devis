@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Réalisations - Inov-Action Menuiserie</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #222;
+    }
+
+    /* HEADER */
+    header {
+        background: #111;
+        padding: 25px 20px 30px;
+        text-align: center;
+        border-bottom: 3px solid #ff7a00;
+    }
+
+    .logo {
+        width: 150px;
+        max-width: 80%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        color: white;
+        margin: 5px 0;
+        font-size: 28px;
+    }
+
+    header p {
+        color: #ccc;
+        margin: 8px 0 0;
+        font-size: 16px;
+    }
+
+    /* CONTENU */
+    .container {
+        width: 94%;
+        max-width: 1200px;
+        margin: 30px auto 60px;
+    }
+
+    .intro {
+        background: white;
+        padding: 30px 20px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .intro h2 {
+        color: #ff7a00;
+        margin-top: 0;
+        font-size: 28px;
+    }
+
+    .intro p {
+        margin-bottom: 0;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* CATEGORIES */
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .category-btn {
+        border: none;
+        background: white;
+        color: #222;
+        padding: 12px 18px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+        background: #ff7a00;
+        color: white;
+    }
+
+    /* GALERIE */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .project {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+    }
+
+    .project-image {
+        width: 100%;
+        height: 250px;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #777;
+        font-weight: bold;
+        overflow: hidden;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .project-image img:hover {
+        transform: scale(1.04);
+    }
+
+    .project-info {
+        padding: 18px;
+    }
+
+    .project-info h3 {
+        margin: 0 0 8px;
+        color: #ff7a00;
+    }
+
+    .project-info p {
+        margin: 0;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* BOUTON DEVIS */
+    .devis {
+        text-align: center;
+        background: white;
+        margin-top: 35px;
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+
+    .devis h2 {
+        margin-top: 0;
+    }
+
+    .devis p {
+        color: #555;
+    }
+
+    .btn-devis {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 14px 25px;
+        background: #ff7a00;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .btn-devis:hover {
+        background: #e56b00;
+    }
+
+    /* RETOUR */
+    .retour {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .retour a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    .retour a:hover {
+        color: #ff7a00;
+    }
+
+    /* AFFICHAGE GRAND */
+    .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .lightbox img {
+        max-width: 95%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .project-image {
+            height: 220px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        header h1 {
+            font-size: 23px;
+        }
+
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .project-image {
+            height: 250px;
+        }
+
+        .category-btn {
+            width: 100%;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <!-- Ton logo -->
+    <img src="../logo.png" alt="Logo Inov-Action Menuiserie" class="logo">
+
+    <h1>INOV-ACTION MENUISERIE</h1>
+
+    <p>Menuiserie • Agencement • Rénovation</p>
+
+</header>
+
+
+<div class="container">
+
+    <section class="intro">
+
+        <h2>Nos réalisations</h2>
+
+        <p>
+            Découvrez quelques-unes de nos réalisations en menuiserie,
+            agencement et rénovation.
+        </p>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button class="category-btn active" onclick="filterProjects('all')">
+            Toutes
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('cuisine')">
+            Cuisines
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('dressing')">
+            Dressings
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('rangement')">
+            Rangements sur mesure
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('verriere')">
+            Verrières
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('volet')">
+            Volets roulants
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('placo')">
+            Placo / intérieur
+        </button>
+
+        <button class="category-btn" onclick="filterProjects('renovation')">
+            Dépannage / rénovation
+        </button>
+
+    </div>
+
+
+    <!-- GALERIE -->
+
+    <div class="gallery">
+
+
+        <!-- EXEMPLE CUISINE -->
+
+        <div class="project cuisine">
+
+            <div class="project-image">
+
+                <!--
+                Quand tu auras une photo,
+                remplace ce bloc par :
+
+                <img src="images/cuisine/photo1.jpg"
+                     alt="Cuisine sur mesure"
+                     onclick="openLightbox(this.src)">
+                -->
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Cuisine</h3>
+
+                <p>
+                    Réalisation et aménagement de cuisine sur mesure.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE DRESSING -->
+
+        <div class="project dressing">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Dressing</h3>
+
+                <p>
+                    Conception et pose de dressing adapté aux dimensions
+                    et aux besoins du client.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE RANGEMENT -->
+
+        <div class="project rangement">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Rangement sur mesure</h3>
+
+                <p>
+                    Création de meubles et rangements personnalisés.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE VERRIERE -->
+
+        <div class="project verriere">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Verrière</h3>
+
+                <p>
+                    Fabrication et pose de verrière et séparation intérieure.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE VOLET -->
+
+        <div class="project volet">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Volet roulant</h3>
+
+                <p>
+                    Dépannage, réparation, motorisation et remise en service.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE PLACO -->
+
+        <div class="project placo">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Placo / aménagement intérieur</h3>
+
+                <p>
+                    Création de cloisons et aménagements intérieurs.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXEMPLE RENOVATION -->
+
+        <div class="project renovation">
+
+            <div class="project-image">
+
+                Photo à ajouter
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>Dépannage / rénovation</h3>
+
+                <p>
+                    Réparation, rénovation et remise en état de menuiseries.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- DEVIS -->
+
+    <section class="devis">
+
+        <h2>Vous avez un projet ?</h2>
+
+        <p>
+            Vous souhaitez réaliser des travaux ou obtenir un devis ?
+        </p>
+
+        <a
+            href="../index.html"
+            class="btn-devis">
+            JE DEMANDE UN DEVIS
+        </a>
+
+    </section>
+
+
+    <div class="retour">
+
+        <a href="../index.html">
+            ← Retour à la demande de devis
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+    <span class="close">&times;</span>
+
+    <img id="lightbox-img" src="" alt="Réalisation">
+
+</div>
+
+
+<script>
+
+function filterProjects(category) {
+
+    const projects = document.querySelectorAll('.project');
+    const buttons = document.querySelectorAll('.category-btn');
+
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    event.target.classList.add('active');
+
+    projects.forEach(project => {
+
+        if (category === 'all') {
+
+            project.style.display = 'block';
+
+        } else {
+
+            if (project.classList.contains(category)) {
+
+                project.style.display = 'block';
+
+            } else {
+
+                project.style.display = 'none';
+
+            }
+
+        }
+
+    });
+
+}
+
+
+function openLightbox(image) {
+
+    document.getElementById('lightbox-img').src = image;
+
+    document.getElementById('lightbox').style.display = 'flex';
+
+}
+
+
+function closeLightbox() {
+
+    document.getElementById('lightbox').style.display = 'none';
+
+}
+
+</script>
+
+</body>
+</html>
