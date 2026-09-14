@@ -1,12 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Réalisations - Inov-Action Menuiserie</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -18,7 +22,10 @@ body {
     color: #222;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header {
     background: #111;
@@ -46,7 +53,10 @@ header p {
     font-size: 16px;
 }
 
-/* CONTENU */
+
+/* =========================
+   CONTENU
+========================= */
 
 .container {
     width: 94%;
@@ -74,7 +84,10 @@ header p {
     line-height: 1.6;
 }
 
-/* CATEGORIES */
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories {
     display: flex;
@@ -101,7 +114,10 @@ header p {
     color: white;
 }
 
-/* GALERIE */
+
+/* =========================
+   GALERIE
+========================= */
 
 .gallery {
     display: grid;
@@ -116,7 +132,10 @@ header p {
     box-shadow: 0 3px 10px rgba(0,0,0,0.35);
 }
 
-/* CUISINE */
+
+/* =========================
+   GRANDE PHOTO
+========================= */
 
 .project-image {
     width: 100%;
@@ -137,22 +156,10 @@ header p {
     transform: scale(1.04);
 }
 
-.project-info {
-    padding: 18px;
-}
 
-.project-info h3 {
-    margin: 0 0 8px;
-    color: #ff7a00;
-}
-
-.project-info p {
-    margin: 0;
-    color: #555;
-    line-height: 1.5;
-}
-
-/* PETITES PHOTOS */
+/* =========================
+   PETITES PHOTOS
+========================= */
 
 .photo-grid {
     display: grid;
@@ -173,7 +180,30 @@ header p {
     opacity: 0.8;
 }
 
-/* BOUTON DEVIS */
+
+/* =========================
+   INFORMATIONS PROJET
+========================= */
+
+.project-info {
+    padding: 18px;
+}
+
+.project-info h3 {
+    margin: 0 0 8px;
+    color: #ff7a00;
+}
+
+.project-info p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOUTON DEVIS
+========================= */
 
 .devis {
     text-align: center;
@@ -207,7 +237,10 @@ header p {
     background: #e56b00;
 }
 
-/* RETOUR */
+
+/* =========================
+   RETOUR
+========================= */
 
 .retour {
     text-align: center;
@@ -223,7 +256,10 @@ header p {
     color: #ff7a00;
 }
 
-/* LIGHTBOX */
+
+/* =========================
+   LIGHTBOX
+========================= */
 
 .lightbox {
     display: none;
@@ -254,7 +290,10 @@ header p {
     cursor: pointer;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -265,6 +304,7 @@ header p {
     .project-image {
         height: 300px;
     }
+
 }
 
 @media (max-width: 550px) {
@@ -284,11 +324,20 @@ header p {
     .photo-grid img {
         height: 85px;
     }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -298,152 +347,184 @@ header p {
 
     <h1>INOV-ACTION MENUISERIE</h1>
 
-    <p>Menuiserie • Agencement • Rénovation</p>
+    <p>
+        Menuiserie • Agencement • Rénovation
+    </p>
 
 </header>
 
 
+
 <div class="container">
 
-    <section class="intro">
 
-        <h2>Nos réalisations</h2>
+<!-- =========================
+     INTRODUCTION
+========================= -->
 
-        <p>
-            Découvrez quelques-unes de nos réalisations en menuiserie,
-            agencement et rénovation.
-        </p>
+<section class="intro">
 
-    </section>
+    <h2>Nos réalisations</h2>
+
+    <p>
+        Découvrez quelques-unes de nos réalisations en menuiserie,
+        agencement et rénovation.
+    </p>
+
+</section>
 
 
-    <!-- CATEGORIES -->
 
-    <div class="categories">
+<!-- =========================
+     CATEGORIES
+========================= -->
 
-        <button class="category-btn active"
-                onclick="filterProjects('all', this)">
-            Toutes
-        </button>
+<div class="categories">
 
-        <button class="category-btn"
-                onclick="filterProjects('cuisine', this)">
-            Cuisines
-        </button>
+    <button class="category-btn active"
+            onclick="filterProjects('all', this)">
+        Toutes
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('dressing', this)">
-            Dressings
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('cuisine', this)">
+        Cuisines
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('rangement', this)">
-            Rangements sur mesure
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('dressing', this)">
+        Dressings
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('verriere', this)">
-            Verrières
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('rangement', this)">
+        Rangements sur mesure
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('volet', this)">
-            Volets roulants
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('verriere', this)">
+        Verrières
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('placo', this)">
-            Placo / intérieur
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('volet', this)">
+        Volets roulants
+    </button>
 
-        <button class="category-btn"
-                onclick="filterProjects('renovation', this)">
-            Dépannage / rénovation
-        </button>
+    <button class="category-btn"
+            onclick="filterProjects('placo', this)">
+        Placo / intérieur
+    </button>
+
+    <button class="category-btn"
+            onclick="filterProjects('renovation', this)">
+        Dépannage / rénovation
+    </button>
+
+</div>
+
+
+
+<!-- =========================
+     GALERIE
+========================= -->
+
+<div class="gallery">
+
+
+
+<!-- =========================
+     PROJET CUISINE
+========================= -->
+
+<div class="project cuisine">
+
+
+    <!-- PHOTO PRINCIPALE -->
+
+    <div class="project-image">
+
+        <img src="photo/cuisine-1.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
     </div>
 
 
-    <!-- GALERIE -->
+    <!-- AUTRES PHOTOS -->
 
-    <div class="gallery">
+    <div class="photo-grid">
 
+        <img src="photo/cuisine-2.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-        <!-- CUISINE -->
+        <img src="photo/cuisine-3.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-        <div class="project cuisine">
+        <img src="photo/cuisine-4.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-            <!-- GRANDE PHOTO -->
+        <img src="photo/cuisine-5.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-            <div class="project-image">
+        <img src="photo/cuisine-6.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-                <img src="photo/cuisine-1.jpg"
-                     alt="Cuisine sur mesure"
-                     onclick="openLightbox(this.src)">
+        <img src="photo/cuisine-7.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-            </div>
+        <img src="photo/cuisine-8.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
+        <img src="photo/cuisine-9.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-            <!-- AUTRES PHOTOS -->
+        <img src="photo/cuisine-10.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-            <div class="photo-grid">
+        <img src="photo/cuisine-11.jpg"
+             alt="Cuisine sur mesure"
+             onclick="openLightbox(this.src)">
 
-                <img src="photo/cuisine-2.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-3.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-4.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-5.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-6.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-7.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-8.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-9.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-10.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-
-    <img src="photo/cuisine-11.jpg"
-         alt="Cuisine sur mesure"
-         onclick="openLightbox(this.src)">
-            </div>
+    </div>
 
 
-            <div class="project-info">
+    <!-- DESCRIPTION -->
 
-                <h3>Cuisine sur mesure</h3>
+    <div class="project-info">
 
-                <p>
-                    Réalisation et aménagement d'une cuisine
-                    sur mesure, adaptée aux besoins et aux dimensions
-                    du client.
-                </p>
+        <h3>Cuisine sur mesure</h3>
 
-            </div>
-<!-- DRESSING -->
+        <p>
+            Réalisation et aménagement d'une cuisine
+            sur mesure, adaptée aux besoins et aux dimensions
+            du client.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     PROJET DRESSING
+========================= -->
 
 <div class="project dressing">
+
+
+    <!-- PHOTO PRINCIPALE -->
 
     <div class="project-image">
 
@@ -452,6 +533,9 @@ header p {
              onclick="openLightbox(this.src)">
 
     </div>
+
+
+    <!-- AUTRES PHOTOS -->
 
     <div class="photo-grid">
 
@@ -497,6 +581,9 @@ header p {
 
     </div>
 
+
+    <!-- DESCRIPTION -->
+
     <div class="project-info">
 
         <h3>Dressing sur mesure</h3>
@@ -508,45 +595,58 @@ header p {
 
     </div>
 
-</div>
-        </div>
-
-
-    </div>
-
-
-    <!-- DEVIS -->
-
-    <section class="devis">
-
-        <h2>Vous avez un projet ?</h2>
-
-        <p>
-            Vous souhaitez réaliser des travaux ou obtenir un devis ?
-        </p>
-
-        <a href="../index.html"
-           class="btn-devis">
-            JE DEMANDE UN DEVIS
-        </a>
-
-    </section>
-
-
-    <!-- RETOUR -->
-
-    <div class="retour">
-
-        <a href="../index.html">
-            ← Retour à la demande de devis
-        </a>
-
-    </div>
 
 </div>
 
 
-<!-- LIGHTBOX -->
+
+</div>
+<!-- FIN DE LA GALERIE -->
+
+
+
+<!-- =========================
+     DEVIS
+========================= -->
+
+<section class="devis">
+
+    <h2>Vous avez un projet ?</h2>
+
+    <p>
+        Vous souhaitez réaliser des travaux ou obtenir un devis ?
+    </p>
+
+    <a href="../index.html"
+       class="btn-devis">
+        JE DEMANDE UN DEVIS
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     RETOUR
+========================= -->
+
+<div class="retour">
+
+    <a href="../index.html">
+        ← Retour à la demande de devis
+    </a>
+
+</div>
+
+
+</div>
+<!-- FIN CONTAINER -->
+
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
 
 <div class="lightbox"
      id="lightbox"
@@ -561,6 +661,11 @@ header p {
 </div>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
 function filterProjects(category, button) {
@@ -568,23 +673,35 @@ function filterProjects(category, button) {
     const projects = document.querySelectorAll('.project');
     const buttons = document.querySelectorAll('.category-btn');
 
-    buttons.forEach(btn => {
+
+    /* Gestion du bouton actif */
+
+    buttons.forEach(function(btn) {
+
         btn.classList.remove('active');
+
     });
 
     button.classList.add('active');
 
-    projects.forEach(project => {
+
+    /* Affichage des projets */
+
+    projects.forEach(function(project) {
 
         if (category === 'all') {
 
             project.style.display = 'block';
 
-        } else if (project.classList.contains(category)) {
+        }
+
+        else if (project.classList.contains(category)) {
 
             project.style.display = 'block';
 
-        } else {
+        }
+
+        else {
 
             project.style.display = 'none';
 
@@ -593,6 +710,7 @@ function filterProjects(category, button) {
     });
 
 }
+
 
 
 function openLightbox(image) {
@@ -604,6 +722,7 @@ function openLightbox(image) {
 }
 
 
+
 function closeLightbox() {
 
     document.getElementById('lightbox').style.display = 'none';
@@ -612,5 +731,8 @@ function closeLightbox() {
 
 </script>
 
+
 </body>
+
 </html>
+```
